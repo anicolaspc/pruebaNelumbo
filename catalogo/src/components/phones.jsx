@@ -1,4 +1,3 @@
-// PhoneList.jsx
 import React from "react";
 import "../styles/phones.css";
 import { Card, CardActionArea, CardContent, CardMedia, IconButton, Typography, Button, Box, Rating } from "@mui/material";
