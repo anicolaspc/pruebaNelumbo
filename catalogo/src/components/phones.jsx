@@ -1,4 +1,3 @@
-// PhoneList.jsx
 import React from "react";
 import "../styles/phones.css";
 import { Card, CardActionArea, CardContent, CardMedia, IconButton, Typography, Button, Box, Rating } from "@mui/material";
@@ -20,7 +19,7 @@ const PhoneList = ({ phones, title }) => {
                 <Box className="phones" sx={{ display: 'flex', flexWrap: 'wrap', gap: 5, justifyContent: 'center' }}>
                     {phones.length > 0 ? (
                         phones.map((phone, index) => (
-                            <Card key={index} sx={{ maxWidth: 280, minWidth: 280, position: 'relative', boxShadow: 5 }}>
+                            <Card key={index} sx={{ maxWidth: 270, minWidth: 270, position: 'relative', boxShadow: 5 }}>
                                 <IconButton arial-label="add to favorite" sx={{
                                     position: 'absolute',
                                     top: 8,
