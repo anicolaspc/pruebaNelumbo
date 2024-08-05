@@ -1,25 +1,9 @@
-.contenedor{
-    display: flex;
-    flex-direction: column;
-}
-
-.search{
-    padding: 10px;
-}
-
 .phones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    height: 719px;
+    height: 600px;
+    padding-bottom: 10px;
     overflow-y: auto;
 }
 
 .phones::-webkit-scrollbar {
     display: none;
-}
-
-.name-phone {
-    font-size: 16px;
 }
