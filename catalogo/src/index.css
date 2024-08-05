@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+:root{
+  --primer-color: #2B3445;
+}
+
 #root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

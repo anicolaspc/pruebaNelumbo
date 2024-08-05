@@ -7,6 +7,7 @@ import Navigation from "./components/nav/navbar";
 import Footer from "./components/footer";
 import Search from "./components/search";
 import FetchComponent from "./components/fetchConecction";
+import Offer from "./components/offer";
 
 const App = () => {
     const urls = [
@@ -30,9 +31,10 @@ const App = () => {
                         <div className="result">
                             <Search />
                             <PhoneList phones={latestPhones.data.phones} />
-                            <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Mas Vendidos" />
                         </div>
                     </div>
+                    <Offer />
+                    <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Mas Vendidos" />
                     <div className="footer">
                         <Footer />
                     </div>

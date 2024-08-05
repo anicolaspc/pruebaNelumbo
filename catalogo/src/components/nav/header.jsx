@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 
 const Header = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{background: 'linear-gradient(90deg, #004AC1 25%, #0744A8 75%)'}}>
             <Toolbar>
                 <IconButton>
                     <img src={logo} alt="Company Logo" style={{ height: 50, marginLeft: 20 }} />
