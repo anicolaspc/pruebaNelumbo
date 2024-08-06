@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/phones.css";
 import { Card, CardActionArea, CardContent, CardMedia, IconButton, Typography, Button, Box, Rating } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Overlay from "./overlay";
 
 const PhoneList = ({ phones, title }) => {
+
+    const [open, setOpen] = useState(false)
+    const [selectPhone, setSelectPhone] = useState(null)
+    
+    const handleOpen = (phone) => {
+        setSelectPhone(phone)
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setSelectPhone(null)
+        setOpen(false)
+    }
+
     return (
         <>
             <Box className="contenedor" sx={{ p: 3 }}>
@@ -29,7 +44,7 @@ const PhoneList = ({ phones, title }) => {
                                 }}>
                                     <FavoriteBorderIcon />
                                 </IconButton>
-                                <CardActionArea>
+                                <CardActionArea onClick={() => handleOpen(phone)}>
                                     <CardMedia
                                         component="img"
                                         height="240"
@@ -85,7 +100,7 @@ const PhoneList = ({ phones, title }) => {
                                             $520 p/mes
                                         </Typography>
                                     </Box>
-                                    <Button variant="contained" fullWidth sx={{
+                                    <Button onClick={() => handleOpen(phone)} variant="contained" fullWidth sx={{
                                         mb: 1,
                                         backgroundColor: '#FFD300',
                                         color: '#004AC1',
@@ -107,6 +122,7 @@ const PhoneList = ({ phones, title }) => {
                     )}
                 </Box>
             </Box>
+            <Overlay open={open} handleClose={handleClose} phone={selectPhone} />
         </>
     );
 }

@@ -83,7 +83,10 @@ const Footer = () => {
                                 <Grid >
                                     <Grid item xs={30} marginTop="10%">
                                         <Box display="flex" alignItems="center">
-                                            <IconButton sx={{ backgroundColor: 'blue', borderRadius: '20px' }}>
+                                            <IconButton sx={{ backgroundColor: '#0038AE', borderRadius: '20px', 
+                                            '&:hover':{
+                                                backgroundColor: '#0038AE'
+                                            } }}>
                                                 <img src={logo} alt="Company Logo" style={{ height: 50 }} />
                                             </IconButton>
                                             <Box display="flex" flexDirection="column" sx={{}}>
@@ -106,7 +109,7 @@ const Footer = () => {
                             justifyContent: 'center',
                             textAlign: 'center',
                         }}>
-                            <svg width="300" height="300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="15rem" height="15rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="7" cy="12" r="2" fill="#0744A8" />
                                 <circle cx="7" cy="19" r="1.5" fill="#0744A8" />
                                 <circle cx="16" cy="12" r="2" fill="#0744A8" />
@@ -127,10 +130,10 @@ const Footer = () => {
                                 gap: '16px', 
                                 marginTop: '20px' 
                             }}>
-                                <Link href="#" ><Facebook fontSize="large" sx={{ color: '#2B3445', width: '80px', height: '80px' }} /></Link>
-                                <Link href="#" ><Instagram fontSize="large" sx={{ color: '#2B3445', width: '80px', height: '80px' }} /></Link>
-                                <Link href="#" ><LinkedIn fontSize="large" sx={{ color: '#2B3445', width: '80px', height: '80px' }} /></Link>
-                                <Link href="#" ><WhatsApp fontSize="large" sx={{ color: '#2B3445', width: '80px', height: '80px' }}/></Link>
+                                <Link href="#" ><Facebook fontSize="large" sx={{ color: '#2B3445', width: '70px', height: '70px' }} /></Link>
+                                <Link href="#" ><Instagram fontSize="large" sx={{ color: '#2B3445', width: '70px', height: '70px' }} /></Link>
+                                <Link href="#" ><LinkedIn fontSize="large" sx={{ color: '#2B3445', width: '70px', height: '70px' }} /></Link>
+                                <Link href="#" ><WhatsApp fontSize="large" sx={{ color: '#2B3445', width: '70px', height: '70px' }}/></Link>
                             </Box>
                         </Box>
                     </Grid>
