@@ -8,6 +8,7 @@ import Search from "./components/search";
 import FetchComponent from "./components/fetchConecction";
 import Offer from "./components/offer";
 import Detail from "./components/detail";
+import ProductInformation from "./components/productInformation";
 
 const App = () => {
     const [showDetail, setShowDetail] = useState(false);
@@ -25,7 +26,7 @@ const App = () => {
 
     const urls = [
         "https://phone-specs-api-git-master-azharimm.vercel.app/latest",
-        "http://phone-specs-api-git-master-azharimm.vercel.app/brands/casio-phones-77",
+        "https://phone-specs-api-git-master-azharimm.vercel.app/brands/casio-phones-77",
         "https://phone-specs-api-git-master-azharimm.vercel.app/brands"
     ];
 
@@ -53,8 +54,17 @@ const App = () => {
                         </>
                     ) : (
                         <>
-                        <Detail phone={selectedPhone} handleBack={handleBack} />
-                        <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Más Vendidos" handleDetail={handleDetail} />
+                            {selectedPhone && (
+                                <FetchComponent urls={[`https://phone-specs-api-git-master-azharimm.vercel.app/${selectedPhone.slug}`]}>
+                                    {([phoneDetail]) => (
+                                        <>
+                                            <Detail phone={selectedPhone} handleBack={handleBack} />
+                                            <ProductInformation phone={phoneDetail.data} />
+                                            <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Más Vendidos" handleDetail={handleDetail} />
+                                        </>
+                                    )}
+                                </FetchComponent>
+                            )}
                         </>
                     )}
                     <div className="footer">

@@ -1,13 +1,13 @@
 import { Box, Button, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
-import visa from '../assets/visa.svg'
-import mastercard from '../assets/mastercard.svg'
+import visa from '../assets/visa.svg';
+import mastercard from '../assets/mastercard.svg';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Looks3Icon from '@mui/icons-material/Looks3';
-import Shield from '@mui/icons-material/Shield'
-import ChevronRight from '@mui/icons-material/ChevronRight'
-import ArrowCircleRight from '@mui/icons-material/ArrowCircleRight'
+import Shield from '@mui/icons-material/Shield';
+import ChevronRight from '@mui/icons-material/ChevronRight';
+import ArrowCircleRight from '@mui/icons-material/ArrowCircleRight';
 
 const Detail = ({ phone, handleBack }) => {
     if (!phone) return null;
@@ -15,7 +15,6 @@ const Detail = ({ phone, handleBack }) => {
     return (
         <>
             <Button
-                // variant="contained"
                 onClick={handleBack}
                 sx={{ 
                     mb: 2,
@@ -174,7 +173,10 @@ const Detail = ({ phone, handleBack }) => {
                         justifyContent: 'space-between'
                     }}>
                         <Box textAlign="right">
-                            <Typography variant="h5" sx={{ color: '#004AC1', fontSize: '40px', fontWeight: 'bold' }}>
+                            <Typography variant="h5" sx={{ 
+                                color: '#004AC1', 
+                                fontSize: '40px', 
+                                fontWeight: 'bold' }}>
                                 $3,499
                             </Typography>
                             <Typography variant="body1" color="textSecondary" style={{ textDecoration: 'line-through' }}>

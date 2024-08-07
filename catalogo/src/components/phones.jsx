@@ -99,7 +99,7 @@ const PhoneList = ({ phones, title, handleDetail }) => {
                                             $520 p/mes
                                         </Typography>
                                     </Box>
-                                    <Button onClick={() => handleDetail(phone)} variant="contained" fullWidth sx={{
+                                    <Button onClick={() => handleOpen(phone)} variant="contained" fullWidth sx={{
                                         mb: 1,
                                         backgroundColor: '#FFD300',
                                         color: '#004AC1',
