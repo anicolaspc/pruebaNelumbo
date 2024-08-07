@@ -1,5 +1,4 @@
-// App.jsx
-import React from "react";
+import React, { useState } from "react";
 import PhoneList from "./components/phones";
 import BrandList from "./components/brands";
 import Header from "./components/nav/header";
@@ -8,8 +7,22 @@ import Footer from "./components/footer";
 import Search from "./components/search";
 import FetchComponent from "./components/fetchConecction";
 import Offer from "./components/offer";
+import Detail from "./components/detail";
 
 const App = () => {
+    const [showDetail, setShowDetail] = useState(false);
+    const [selectedPhone, setSelectedPhone] = useState(null);
+
+    const handleDetail = (phone) => {
+        setSelectedPhone(phone);
+        setShowDetail(true);
+    };
+
+    const handleBack = () => {
+        setShowDetail(false);
+        setSelectedPhone(null);
+    };
+
     const urls = [
         "https://phone-specs-api-git-master-azharimm.vercel.app/latest",
         "http://phone-specs-api-git-master-azharimm.vercel.app/brands/casio-phones-77",
@@ -24,17 +37,26 @@ const App = () => {
                         <Header />
                         <Navigation />
                     </div>
-                    <div className="body">
-                        <div className="filter">
-                            <BrandList brands={brands.data} />
-                        </div>
-                        <div className="result">
-                            <Search />
-                            <PhoneList phones={latestPhones.data.phones} />
-                        </div>
-                    </div>
-                    <Offer />
-                    <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Mas Vendidos" />
+                    {!showDetail ? (
+                        <>
+                            <div className="body">
+                                <div className="filter">
+                                    <BrandList brands={brands.data} />
+                                </div>
+                                <div className="result">
+                                    <Search />
+                                    <PhoneList phones={latestPhones.data.phones} handleDetail={handleDetail} />
+                                </div>
+                            </div>
+                            <Offer />
+                            <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Más Vendidos" handleDetail={handleDetail} />
+                        </>
+                    ) : (
+                        <>
+                        <Detail phone={selectedPhone} handleBack={handleBack} />
+                        <PhoneList phones={popularPhones.data.phones} title="Nuestros Productos Más Vendidos" handleDetail={handleDetail} />
+                        </>
+                    )}
                     <div className="footer">
                         <Footer />
                     </div>

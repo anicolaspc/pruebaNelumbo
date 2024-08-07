@@ -4,20 +4,19 @@ import { Card, CardActionArea, CardContent, CardMedia, IconButton, Typography, B
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Overlay from "./overlay";
 
-const PhoneList = ({ phones, title }) => {
+const PhoneList = ({ phones, title, handleDetail }) => {
+    const [open, setOpen] = useState(false);
+    const [selectPhone, setSelectPhone] = useState(null);
 
-    const [open, setOpen] = useState(false)
-    const [selectPhone, setSelectPhone] = useState(null)
-    
     const handleOpen = (phone) => {
-        setSelectPhone(phone)
-        setOpen(true)
-    }
+        setSelectPhone(phone);
+        setOpen(true);
+    };
 
     const handleClose = () => {
-        setSelectPhone(null)
-        setOpen(false)
-    }
+        setSelectPhone(null);
+        setOpen(false);
+    };
 
     return (
         <>
@@ -100,7 +99,7 @@ const PhoneList = ({ phones, title }) => {
                                             $520 p/mes
                                         </Typography>
                                     </Box>
-                                    <Button onClick={() => handleOpen(phone)} variant="contained" fullWidth sx={{
+                                    <Button onClick={() => handleDetail(phone)} variant="contained" fullWidth sx={{
                                         mb: 1,
                                         backgroundColor: '#FFD300',
                                         color: '#004AC1',
@@ -122,7 +121,7 @@ const PhoneList = ({ phones, title }) => {
                     )}
                 </Box>
             </Box>
-            <Overlay open={open} handleClose={handleClose} phone={selectPhone} />
+            <Overlay open={open} handleClose={handleClose} phone={selectPhone} handleDetail={handleDetail} />
         </>
     );
 }

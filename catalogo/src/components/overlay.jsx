@@ -3,17 +3,16 @@ import { Modal, Box, Typography, Button, Link, Divider } from "@mui/material";
 import banner from '../assets/banner.jpg';
 import { Check } from "@mui/icons-material";
 
-const Overlay = ({ open, handleClose, phone }) => {
-
-    if (!phone) return null
+const Overlay = ({ open, handleClose, phone, handleDetail }) => {
+    if (!phone) return null;
 
     return (
         <>
             <Modal
                 open={open}
                 onClose={handleClose}
-                aria_labellebdy="modal-modal-title"
-                aria_describedby="modal-modal-description"
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
             >
                 <Box sx={{
                     position: 'absolute',
@@ -86,7 +85,7 @@ const Overlay = ({ open, handleClose, phone }) => {
                         <Box display="flex" flexDirection="column" textAlign="center">
                             <Typography variant="h6">Te vas a llevar este celular por solo</Typography>
                             <Typography variant="body2" fontWeight="bold" fontSize="30px">$120 p/semana</Typography>
-                            <Button variant="contained" sx={{ 
+                            <Button variant="contained" onClick={() => {handleDetail(phone); handleClose()}} sx={{ 
                                 backgroundColor: '#FFD300',
                                 color: '#004AC1', 
                                 fontSize: '20px', 
@@ -95,9 +94,9 @@ const Overlay = ({ open, handleClose, phone }) => {
                                 '&:hover':{
                                     backgroundColor: '#FFD300'
                                 } 
-                                }}>
+                            }}>
                                 Comprar a Crédito
-                                </Button>
+                            </Button>
                         </Box>
                     </Box>
 
@@ -125,7 +124,7 @@ const Overlay = ({ open, handleClose, phone }) => {
                     <Box sx={{ textAlign: 'center', m: '20px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Link
                             href="#"
-                            onClick={handleClose}
+                            onClick={() => {handleDetail(phone); handleClose()}}
                             sx={{ position: 'relative', zIndex: 1, background: 'white', px: 1 }}
                         >
                             Comprar de Contado
@@ -134,7 +133,7 @@ const Overlay = ({ open, handleClose, phone }) => {
                 </Box>
             </Modal>
         </>
-    )
+    );
 }
 
-export default Overlay
+export default Overlay;

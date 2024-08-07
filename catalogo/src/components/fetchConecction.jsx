@@ -1,4 +1,3 @@
-// FetchComponent.jsx
 import React, { useState, useEffect } from "react";
 import { CircularProgress, Box, Typography } from "@mui/material";
 
